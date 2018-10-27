@@ -18,8 +18,8 @@ class TypeSafeIdentifier {
   IntegralT id_;
 };
 
-template <typename T>
-std::ostream &operator<<(std::ostream &os, TypeSafeIdentifier<T> identifier) {
+template <typename T, typename IntegralT>
+std::ostream &operator<<(std::ostream &os, TypeSafeIdentifier<T, IntegralT> identifier) {
   return os << identifier.value();
 }
 
