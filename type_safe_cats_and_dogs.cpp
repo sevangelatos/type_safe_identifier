@@ -25,7 +25,7 @@ int main() {
   DogId lassy(1);
   DogId spot(2);
 
-  // These will do the right
+  // These will do the right thing
   Feed(minty);
   Feed(spot);
   Feed(lassy);
