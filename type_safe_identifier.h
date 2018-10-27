@@ -2,11 +2,12 @@
 #define TYPE_SAFE_IDENTIFIER_H
 #include <ostream>
 
-template <typename T>
+template <typename T, typename IntegralT = int>
 class TypeSafeIdentifier {
  public:
-  explicit TypeSafeIdentifier(int id) : id_(id) {}
+  explicit TypeSafeIdentifier(IntegralT id) : id_(id) {}
 
+  /// Get the identifier value as an int
   int value() { return id_; }
 
   bool operator<(TypeSafeIdentifier<T> rhs) const { return id_ < rhs.id_; }
@@ -14,7 +15,7 @@ class TypeSafeIdentifier {
   bool operator!=(TypeSafeIdentifier<T> rhs) const { return id_ != rhs.id_; }
 
  private:
-  int id_;
+  IntegralT id_;
 };
 
 template <typename T>
