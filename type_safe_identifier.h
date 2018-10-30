@@ -9,20 +9,20 @@
 template <typename T, typename RawIdT = int>
 class TypeSafeIdentifier {
  public:
-  explicit TypeSafeIdentifier(RawIdT id) : id_(id) {}
+  explicit TypeSafeIdentifier(RawIdT id = RawIdT()) : id_(id) {}
 
   /// Get the identifier value as an int
-  RawIdT value() { return id_; }
+  RawIdT value() const noexcept { return id_; }
 
-  bool operator<(TypeSafeIdentifier<T, RawIdT> rhs) const {
+  bool operator<(TypeSafeIdentifier<T, RawIdT> rhs) const noexcept {
     return id_ < rhs.id_;
   }
 
-  bool operator==(TypeSafeIdentifier<T, RawIdT> rhs) const {
+  bool operator==(TypeSafeIdentifier<T, RawIdT> rhs) const noexcept {
     return id_ == rhs.id_;
   }
 
-  bool operator!=(TypeSafeIdentifier<T, RawIdT> rhs) const {
+  bool operator!=(TypeSafeIdentifier<T, RawIdT> rhs) const noexcept {
     return id_ != rhs.id_;
   }
 
